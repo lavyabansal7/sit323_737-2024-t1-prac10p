@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mypod
+  labels:
+    tier: frontend
+spec:
+  containers:
+  - image: sit323-24t1-bansal-18f9eef/sit323-task10p
+    name: lb-node-10p
+    ports:
+    - containerPort: 3040
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always

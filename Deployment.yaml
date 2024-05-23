@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mydeployment
+  labels:
+    app: lb-node-10p
+    tier: frontend
+spec:
+  # modify replicas according to your case
+  replicas: 3
+  selector:
+    matchLabels:
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        tier: frontend
+    spec:
+      containers:
+      - name: lb-node-10p
+        imagePullPolicy: Always
+        restartPolicy: Never
+        image: sit323-24t1-bansal-18f9eef/sit323-task10p
+        ports:
+        - containerPort: 3040
